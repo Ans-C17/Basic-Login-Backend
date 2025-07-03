@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Create new account</title>
+</head>
+<body>
+    <div class="h-screen w-screen bg-gradient-to-br from-yellow-300 to-red-800 flex justify-center items-center">
+        <div class="bg-white max-w-[30%] w-screen h-[65%] rounded-lg shadow-2xl p-10 space-y-12">
+            <p class="text-center text-2xl font-sans font-semibold">CREATE A NEW ACCOUNT</p>
+
+            <form method="post" action="/signup" class="flex flex-col w-full h-[60%] justify-center">
+                <input id="username" type="text" name="username" placeholder="Username" required class="caret-red-900 font-mono m-2 w-[90%] h-12 rounded-2xl p-4 border border-gray-300 focus:border-none focus:outline-none focus:ring-2 focus:ring-red-300 transform hover:scale-105 shadow-sm transition">
+                <input id="password" type="password" name="password" placeholder="Password" required class="caret-red-900 font-mono m-2 w-[90%] h-12 rounded-2xl p-4 border border-gray-300 focus:border-none focus:outline-none focus:ring-2 focus:ring-red-300 transform hover:scale-105 shadow-sm transition">
+                <input id="confirm-password" type="password" name="confirmPassword" placeholder="Confirm Password" required class="caret-red-900 font-mono m-2 w-[90%] h-12 rounded-2xl p-4 border border-gray-300 focus:border-none focus:outline-none focus:ring-2 focus:ring-red-300 transform hover:scale-105 shadow-sm transition">
+                <button type="submit" class="cursor-pointer font-mono text-white mt-6 bg-gradient-to-br from-red-300 to-red-600 mx-auto px-6 py-2 rounded-full transform hover:scale-110 hover:from-red-600 hover:to-red-400 transition ease-in-out">Sign Up</button>
+            </form>
+            <p class="text-center">Already have an account? <a href="/" class="text-red-600 hover:underline">Log In</a></p>
+        </div>
+    </div>
+
+    <script>
+        const urlObject = new URLSearchParams(window.location.search);
+        if(urlObject.get('invalidPassword') === '1'){
+            alert('Make sure both passwords are same');
+            document.getElementById("username").value = '';
+            document.getElementById("password").value = '';
+            document.getElementById("confirm-password").value = '';
+        }
+    </script>
+</body>
+</html>
